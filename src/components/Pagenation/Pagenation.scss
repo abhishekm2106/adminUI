@@ -1,0 +1,41 @@
+.pagenation {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem 0 2rem;
+
+    .page-button {
+        border-radius: 50rem;
+        background-color: #3F3D49;
+        border: none;
+        color: white;
+        padding: 1rem;
+        margin: 1rem .4rem;
+        cursor: pointer;
+    }
+
+    .current {
+        background-color: aqua;
+        color: black;
+        padding: 1rem 1.5rem;
+        margin: 1rem .8rem;
+        border-radius: 50rem;
+        border: none;
+        transform: scale(1.1);
+    }
+
+    .move-page {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        font-size: 2rem;
+        border-radius: 50rem;
+        overflow: hidden;
+        margin: 0 .5rem;
+    }
+}

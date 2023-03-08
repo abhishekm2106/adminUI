@@ -5,7 +5,8 @@
     transform: translate(-50%, -50%);
     padding: 4rem;
     background-color: #373443;
-    display: none;
+
+
 
     .question {
         margin-bottom: 2rem;
@@ -21,9 +22,4 @@
             cursor: pointer;
         }
     }
-
-}
-
-.popup {
-    display: block;
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import Modal from '../Modal/Modal'
 import './Delete.scss'
 
 function Delete({ user, setUsers, deletePopUp, setDeletePopUp }) {
@@ -13,13 +14,16 @@ function Delete({ user, setUsers, deletePopUp, setDeletePopUp }) {
         setDeletePopUp(false)
     }
     return (
-        <div className={`delete ${deletePopUp ? 'popup' : ''}`}>
-            <div className='question'>Are you sure you want to delete data for user: <strong>{user?.name}</strong> ?</div>
-            <div className='buttons'>
-                <button onClick={deleteUser}>yes</button>
-                <button onClick={cancelDelete}>no</button>
+        <Modal popUp={deletePopUp}>
+            <div className={`delete `}>
+                <div className='question'>Are you sure you want to delete data for user: <strong>{user?.name}</strong> ?</div>
+                <div className='buttons'>
+                    <button onClick={deleteUser}>yes</button>
+                    <button onClick={cancelDelete}>no</button>
+                </div>
             </div>
-        </div>
+        </Modal>
+
     )
 }
 

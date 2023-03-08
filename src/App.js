@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import { RiDeleteBin6Fill } from 'react-icons/ri';
 import './App.scss';
 import Delete from './components/Delete/Delete';
 import Edit from './components/Edit/Edit';
@@ -20,10 +20,14 @@ function App() {
 
 
   useEffect(() => {
-    axios({
-      method: 'get',
-      url: "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json",
-    }).then(response => { setUsers(response.data); localStorage.setItem("users", JSON.stringify(response.data)) })
+    try {
+      axios({
+        method: 'get',
+        url: "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json",
+      }).then(response => { setUsers(response.data); localStorage.setItem("users", JSON.stringify(response.data)) })
+    } catch (error) {
+      alert(error.message)
+    }
   }, [])
 
   useEffect(() => {
@@ -31,7 +35,8 @@ function App() {
   }, [search])
 
   const filterUsers = (users, keyword) => {
-    return users.filter(user => user.name.includes(keyword) || user.email.includes(keyword) || user.role.includes(keyword))
+    keyword = keyword.toLowerCase()
+    return users.filter(user => user.name.toLowerCase().includes(keyword) || user.email.toLowerCase().includes(keyword) || user.role.toLowerCase().includes(keyword))
   }
 
   const getAllIds = () => currentPageUsers.map(user => user.id)
@@ -60,7 +65,7 @@ function App() {
         setDeletePopUp={setDeletePopUp}
         setEditUser={setEditUser}
         setEditPopUp={setEditPopUp} />
-      <button className='delete-selected' onClick={deleteSelected}>Delete Selected</button>
+      <button className='delete-selected' onClick={deleteSelected}><RiDeleteBin6Fill size="1.2em" /><span style={{ marginLeft: ".5rem" }}>Delete Selected</span></button>
       <Pagenation currentPage={currentPage} setCurrentPage={setCurrentPage} users={users} rowsPerPage={rowsPerPage} />
       <Delete user={deleteUser} setUsers={setUsers} deletePopUp={deletePopUp} setDeletePopUp={setDeletePopUp} />
       <Edit user={editUser} setUsers={setUsers} editPopUp={editPopUp} setEditPopUp={setEditPopUp} />

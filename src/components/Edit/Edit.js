@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Modal from '../Modal/Modal'
 import './Edit.scss'
 
 function Edit({ user, setUsers, editPopUp, setEditPopUp }) {
@@ -28,28 +29,31 @@ function Edit({ user, setUsers, editPopUp, setEditPopUp }) {
     }, [user])
 
     return (
-        <div className={`edit ${editPopUp ? 'popup' : ''}`}>
-            <form onSubmit={(e) => { e.preventDefault(); editUser() }}>
-                <div>
-                    <label htmlFor="name">Name : </label>
-                    <input type="text" id="name" name="name" value={name} onChange={(e) => { setName(e.target.value) }} />
-                </div>
-                <div>
-                    <label htmlFor="email">Email : </label>
-                    <input type="text" id="email" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
-                </div>
-                <div>
-                    <label htmlFor="role">Role : </label>
-                    <select id="role" name="role" value={role} onChange={(e) => setRole(e.target.value)}>
-                        <option value="member">Member</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
+        <Modal popUp={editPopUp}>
+            <div className="edit">
+                <form onSubmit={(e) => { e.preventDefault(); editUser() }}>
+                    <div>
+                        <label htmlFor="name">Name : </label>
+                        <input type="text" id="name" name="name" value={name} onChange={(e) => { setName(e.target.value) }} />
+                    </div>
+                    <div>
+                        <label htmlFor="email">Email : </label>
+                        <input type="text" id="email" name="email" value={email} onChange={(e) => { setEmail(e.target.value) }} />
+                    </div>
+                    <div>
+                        <label htmlFor="role">Role : </label>
+                        <select id="role" name="role" value={role} onChange={(e) => setRole(e.target.value)}>
+                            <option value="member">Member</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
 
-                <input type="submit" />
-                <button onClick={cancelEdit}>Cancel</button>
-            </form>
-        </div>
+                    <input type="submit" />
+                    <button onClick={cancelEdit}>Cancel</button>
+                </form>
+            </div>
+        </Modal>
+
     )
 }
 

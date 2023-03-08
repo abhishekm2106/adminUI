@@ -22,8 +22,8 @@ function Table({ currentPageUsers, selectedRows, setSelectedRows, getAllIds, set
                             <td>{user.email}</td>
                             <td>{user.role}</td>
                             <td>
-                                <button onClick={() => { setDeleteUser(user); setDeletePopUp(true) }}><RiDeleteBin6Fill /></button>
-                                <button onClick={() => { setEditUser(user); setEditPopUp(true) }}><RiEditBoxFill /></button>
+                                <button className='actions' onClick={() => { setEditUser(user); setEditPopUp(true) }}><RiEditBoxFill /></button>
+                                <button className='actions' onClick={() => { setDeleteUser(user); setDeletePopUp(true) }}><RiDeleteBin6Fill /></button>
                             </td>
                         </tr>
                     ))

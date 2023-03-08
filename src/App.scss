@@ -1,5 +1,5 @@
 .App {
-  padding: 2rem 6rem;
+  margin: 2rem 6rem;
 
   .delete-selected {
     border-radius: 50rem;
@@ -46,4 +46,20 @@
   top: 0;
   left: 0;
   display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  .App {
+    margin: 2rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    margin: 2rem 1rem;
+  }
+
+  #search {
+    width: 100%;
+  }
 }

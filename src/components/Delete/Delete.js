@@ -8,6 +8,7 @@ function Delete({ user, setUsers, deletePopUp, setDeletePopUp }) {
         localStorage.setItem("users", JSON.stringify(newUsers))
         setUsers(newUsers)
         cancelDelete()
+        alert(user.name + " deleted successfully")
     }
 
     const cancelDelete = () => {

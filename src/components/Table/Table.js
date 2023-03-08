@@ -1,7 +1,8 @@
 import './Table.scss'
 import { RiDeleteBin6Fill, RiEditBoxFill } from 'react-icons/ri';
 
-function Table({ currentPageUsers, selectedRows, setSelectedRows, getAllIds, setDeleteUser, setDeletePopUp, setEditUser, setEditPopUp }) {
+function Table({ currentPageUsers, selectedRows, setSelectedRows, setDeleteUser, setDeletePopUp, setEditUser, setEditPopUp }) {
+    const getAllIds = () => currentPageUsers.map(user => user.id)
     return (
         <table>
             <thead>

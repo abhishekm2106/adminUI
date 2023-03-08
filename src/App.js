@@ -39,7 +39,7 @@ function App() {
     return users.filter(user => user.name.toLowerCase().includes(keyword) || user.email.toLowerCase().includes(keyword) || user.role.toLowerCase().includes(keyword))
   }
 
-  const getAllIds = () => currentPageUsers.map(user => user.id)
+
 
   const deleteSelected = () => {
     const selectedUsersId = new Set([...selectedRows])
@@ -60,7 +60,6 @@ function App() {
         currentPageUsers={currentPageUsers}
         selectedRows={selectedRows}
         setSelectedRows={setSelectedRows}
-        getAllIds={getAllIds}
         setDeleteUser={setDeleteUser}
         setDeletePopUp={setDeletePopUp}
         setEditUser={setEditUser}
